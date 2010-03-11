@@ -23,6 +23,9 @@
       <property name="text">
        <string>Load</string>
       </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
      </widget>
     </item>
     <item row="11" column="1">

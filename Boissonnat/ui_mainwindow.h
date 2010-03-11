@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu 11. Mar 21:25:04 2010
+** Created: Thu 11. Mar 22:08:41 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -63,6 +63,7 @@ public:
 
         buttonLoad = new QPushButton(centralWidget);
         buttonLoad->setObjectName(QString::fromUtf8("buttonLoad"));
+        buttonLoad->setFlat(false);
 
         gridLayout->addWidget(buttonLoad, 11, 0, 1, 1);
 
