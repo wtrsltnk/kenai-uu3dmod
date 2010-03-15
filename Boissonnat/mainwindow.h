@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QGraphicsScene>
+#include <boissonnatscene.h>
 
 namespace Ui {
     class MainWindow;
@@ -19,13 +19,11 @@ public slots:
 
 protected:
     void changeEvent(QEvent *e);
-    QGraphicsScene boisScene;
-    void processLine(QString line);
-
+    BoissonnatScene boisScene;
 
 private:
     Ui::MainWindow *ui;
-    int fileCounter;
+    
 };
 
 #endif // MAINWINDOW_H
