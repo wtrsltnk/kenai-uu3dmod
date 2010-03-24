@@ -57,7 +57,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
+   <value key="ToolChain" type="int">0</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">2</value>
   </valuemap>
@@ -67,7 +67,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">2</value>
+   <value key="ToolChain" type="int">0</value>
    <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">0</value>
   </valuemap>
@@ -77,52 +77,46 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\ProgramData</value>
-    <value type="QString">APPDATA=C:\Users\Sander\AppData\Roaming</value>
-    <value type="QString">APR_ICONV_PATH=C:\Program Files\Subversion\iconv</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Program Files\Common Files</value>
-    <value type="QString">COMPUTERNAME=FLAPPIE2</value>
-    <value type="QString">COMSPEC=C:\Windows\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Users\Sander</value>
-    <value type="QString">LOCALAPPDATA=C:\Users\Sander\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\FLAPPIE2</value>
-    <value type="QString">NPMLIB=C:\Program Files\Norman\Npm\Bin</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2010.02.1\mingw\bin;C:\Qt\2010.02.1\qt\bin;C:\Program Files\PC Connectivity Solution\;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Norman\Npm\Bin;C:\Program Files\Common Files\DivX Shared\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\doxygen\bin;C:\Program Files\Subversion\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=x86 Family 6 Model 23 Stepping 6, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=1706</value>
-    <value type="QString">PROGRAMDATA=C:\ProgramData</value>
-    <value type="QString">PROGRAMFILES=C:\Program Files</value>
-    <value type="QString">PSMODULEPATH=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
-    <value type="QString">PUBLIC=C:\Users\Public</value>
-    <value type="QString">QTDIR=C:/Qt/2010.02.1/qt</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\Windows</value>
-    <value type="QString">TEMP=C:\Users\Sander\AppData\Local\Temp</value>
-    <value type="QString">TMP=C:\Users\Sander\AppData\Local\Temp</value>
-    <value type="QString">USERDOMAIN=Flappie2</value>
-    <value type="QString">USERNAME=Sander</value>
-    <value type="QString">USERPROFILE=C:\Users\Sander</value>
-    <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
-    <value type="QString">VS90COMNTOOLS=c:\Program Files\Microsoft Visual Studio 9.0\Common7\Tools\</value>
-    <value type="QString">WINDIR=C:\Windows</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-TFh7FfqRVe,guid=f7a9a77698d12f9179ac5dcf4ba94b1f</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
+    <value type="QString">GDM_LANG=en_US.UTF-8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_PID=15343</value>
+    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-CvWIHG/socket</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/wouter/.gtkrc-1.2-gnome2</value>
+    <value type="QString">HOME=/home/wouter</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/local/qtsdk-2010.02/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=wouter</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-wouter</value>
+    <value type="QString">PATH=/usr/local/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/wouter</value>
+    <value type="QString">QTDIR=/usr/local/qtsdk-2010.02/qt</value>
+    <value type="QString">SESSION_MANAGER=local/puma:@/tmp/.ICE-unix/15358,unix/puma:/tmp/.ICE-unix/15358</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=15398</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-CvWIHG/socket.ssh</value>
+    <value type="QString">USER=wouter</value>
+    <value type="QString">USERNAME=wouter</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-wouter-SrFfgx/database</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=26ad69704ff71adbb17d9fc94b48758c-1269386015.451703-1666338595</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">C:/Users/Sander/Documents/Game and Media Technologie/Periode 7/3D moddeling/assignments/Assignment 3/Boissonnat/Boissonnat/Boissonnat.pro</value>
+    <value type="QString">/home/wouter/Documents/uu/3D Moddeling/Assignments2010/Assignment 3/svn/uu3dmod3~source-code-repository/Boissonnat/Boissonnat.pro</value>
     <value type="QString">-spec</value>
-    <value type="QString">win32-g++</value>
+    <value type="QString">linux-g++-64</value>
     <value type="QString">-r</value>
+    <value type="QString">CONFIG+=debug</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">c:/qt/2010.02.1/qt/bin/qmake.exe</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Users/Sander/Documents/Game and Media Technologie/Periode 7/3D moddeling/assignments/Assignment 3/Boissonnat/Boissonnat</value>
+   <value key="abstractProcess.command" type="QString">/usr/local/qtsdk-2010.02/qt/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool">false</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/wouter/Documents/uu/3D Moddeling/Assignments2010/Assignment 3/svn/uu3dmod3~source-code-repository/Boissonnat</value>
   </valuemap>
  </data>
  <data>
@@ -130,50 +124,43 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">ALLUSERSPROFILE=C:\ProgramData</value>
-    <value type="QString">APPDATA=C:\Users\Sander\AppData\Roaming</value>
-    <value type="QString">APR_ICONV_PATH=C:\Program Files\Subversion\iconv</value>
-    <value type="QString">COMMONPROGRAMFILES=C:\Program Files\Common Files</value>
-    <value type="QString">COMPUTERNAME=FLAPPIE2</value>
-    <value type="QString">COMSPEC=C:\Windows\system32\cmd.exe</value>
-    <value type="QString">FP_NO_HOST_CHECK=NO</value>
-    <value type="QString">HOMEDRIVE=C:</value>
-    <value type="QString">HOMEPATH=\Users\Sander</value>
-    <value type="QString">LOCALAPPDATA=C:\Users\Sander\AppData\Local</value>
-    <value type="QString">LOGONSERVER=\\FLAPPIE2</value>
-    <value type="QString">NPMLIB=C:\Program Files\Norman\Npm\Bin</value>
-    <value type="QString">NUMBER_OF_PROCESSORS=2</value>
-    <value type="QString">OS=Windows_NT</value>
-    <value type="QString">PATH=C:\Qt\2010.02.1\mingw\bin;C:\Qt\2010.02.1\qt\bin;C:\Program Files\PC Connectivity Solution\;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Norman\Npm\Bin;C:\Program Files\Common Files\DivX Shared\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\doxygen\bin;C:\Program Files\Subversion\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live</value>
-    <value type="QString">PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
-    <value type="QString">PROCESSOR_ARCHITECTURE=x86</value>
-    <value type="QString">PROCESSOR_IDENTIFIER=x86 Family 6 Model 23 Stepping 6, GenuineIntel</value>
-    <value type="QString">PROCESSOR_LEVEL=6</value>
-    <value type="QString">PROCESSOR_REVISION=1706</value>
-    <value type="QString">PROGRAMDATA=C:\ProgramData</value>
-    <value type="QString">PROGRAMFILES=C:\Program Files</value>
-    <value type="QString">PSMODULEPATH=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\</value>
-    <value type="QString">PUBLIC=C:\Users\Public</value>
-    <value type="QString">QTDIR=C:/Qt/2010.02.1/qt</value>
-    <value type="QString">SESSIONNAME=Console</value>
-    <value type="QString">SYSTEMDRIVE=C:</value>
-    <value type="QString">SYSTEMROOT=C:\Windows</value>
-    <value type="QString">TEMP=C:\Users\Sander\AppData\Local\Temp</value>
-    <value type="QString">TMP=C:\Users\Sander\AppData\Local\Temp</value>
-    <value type="QString">USERDOMAIN=Flappie2</value>
-    <value type="QString">USERNAME=Sander</value>
-    <value type="QString">USERPROFILE=C:\Users\Sander</value>
-    <value type="QString">VBOX_INSTALL_PATH=C:\Program Files\Sun\VirtualBox\</value>
-    <value type="QString">VS90COMNTOOLS=c:\Program Files\Microsoft Visual Studio 9.0\Common7\Tools\</value>
-    <value type="QString">WINDIR=C:\Windows</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-TFh7FfqRVe,guid=f7a9a77698d12f9179ac5dcf4ba94b1f</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
+    <value type="QString">GDM_LANG=en_US.UTF-8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_PID=15343</value>
+    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-CvWIHG/socket</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/wouter/.gtkrc-1.2-gnome2</value>
+    <value type="QString">HOME=/home/wouter</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/local/qtsdk-2010.02/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=wouter</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-wouter</value>
+    <value type="QString">PATH=/usr/local/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/wouter</value>
+    <value type="QString">QTDIR=/usr/local/qtsdk-2010.02/qt</value>
+    <value type="QString">SESSION_MANAGER=local/puma:@/tmp/.ICE-unix/15358,unix/puma:/tmp/.ICE-unix/15358</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=15398</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-CvWIHG/socket.ssh</value>
+    <value type="QString">USER=wouter</value>
+    <value type="QString">USERNAME=wouter</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-wouter-SrFfgx/database</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=26ad69704ff71adbb17d9fc94b48758c-1269386015.451703-1666338595</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">-w</value>
    </valuelist>
-   <value key="abstractProcess.command" type="QString">C:/Qt/2010.02.1/mingw/bin/mingw32-make.exe</value>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">C:/Users/Sander/Documents/Game and Media Technologie/Periode 7/3D moddeling/assignments/Assignment 3/Boissonnat/Boissonnat</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/wouter/Documents/uu/3D Moddeling/Assignments2010/Assignment 3/svn/uu3dmod3~source-code-repository/Boissonnat</value>
   </valuemap>
  </data>
  <data>

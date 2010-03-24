@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <boissonnatscene.h>
+#include "boissonnatscene.h"
 
 namespace Ui {
     class MainWindow;

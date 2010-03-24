@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QFileDialog"
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setScene(&this->boisScene);
     connect(this->ui->buttonLoad, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 
-    //ui->graphicsView->scale(100, 100);
+	//ui->graphicsView->scale(100, 100);
 
 }
 
@@ -35,7 +35,7 @@ void MainWindow::changeEvent(QEvent *e)
 void MainWindow::buttonClicked(){
 
     QString fileName = QFileDialog::getOpenFileName(this,
-        tr("Open Input file"), "/home/Input/prac3-5", tr("Input Files (*.txt)"));
+		tr("Open Input file"), "./Input/prac3-5", tr("Input Files (*.txt)"));
 
 
     this->boisScene.buttonClicked(fileName);

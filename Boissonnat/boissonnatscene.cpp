@@ -1,7 +1,7 @@
 #include "boissonnatscene.h"
-#include "QFileDialog.h"
-#include "QFile.h"
-#include "QTextStream.h"
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 
 
 BoissonnatScene::BoissonnatScene()
