@@ -43,12 +43,18 @@
       <property name="text">
        <string>Triangulation</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="3" column="2">
-     <widget class="QCheckBox" name="cbxBorder">
+     <widget class="QCheckBox" name="cbxBoundary">
       <property name="text">
-       <string>Border</string>
+       <string>Boundary</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -57,12 +63,21 @@
       <property name="text">
        <string>Points</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="5" column="0">
      <widget class="QPushButton" name="buttonLoad">
       <property name="text">
        <string>Load</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
       </property>
       <property name="flat">
        <bool>false</bool>

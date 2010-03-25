@@ -8,8 +8,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+	ui->buttonLoad->setFocus();
     ui->graphicsView->setScene(&this->boisScene);
-    connect(this->ui->buttonLoad, SIGNAL(clicked()), this, SLOT(buttonClicked()));
+	connect(this->ui->buttonLoad, SIGNAL(clicked()), this, SLOT(loadScene()));
+	connect(this->ui->cbxTriangulation, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(triangulationStatusChanged(int)));
+	connect(this->ui->cbxBoundary, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(boundaryStatusChanged(int)));
+	connect(this->ui->cbxPoints, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(pointsStatusChanged(int)));
 }
 
 MainWindow::~MainWindow()
@@ -29,11 +33,9 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
-void MainWindow::buttonClicked(){
+void MainWindow::loadScene(){
 
-    QString fileName = QFileDialog::getOpenFileName(this,
-		tr("Open Input file"), "./", tr("Input Files (*.txt)"));
-
+	QString fileName = QFileDialog::getOpenFileName(this, tr("Open Input file"), "./", tr("Input Files (*.txt)"));
 	QFile file(fileName);
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
 		return;

@@ -7,9 +7,13 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     boissonnatscene.cpp \
     geompack.cpp \
-    boundaryitem.cpp
+    boundaryitem.cpp \
+    pointsitem.cpp \
+    triangulationitem.cpp
 HEADERS += mainwindow.h \
     boissonnatscene.h \
     geompack.h \
-    boundaryitem.h
+    boundaryitem.h \
+    pointsitem.h \
+    triangulationitem.h
 FORMS += mainwindow.ui

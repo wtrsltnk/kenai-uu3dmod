@@ -15,7 +15,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void buttonClicked();
+	void loadScene();
 
 protected:
     void changeEvent(QEvent *e);

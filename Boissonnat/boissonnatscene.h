@@ -15,9 +15,17 @@ public:
 
 	void loadPointFile(QTextStream& in);
 
+public slots:
+	void triangulationStatusChanged(int state);
+	void boundaryStatusChanged(int state);
+	void pointsStatusChanged(int state);
+
 protected:
-    QVector<QPointF> points;
-	QGraphicsItem* boundary;
+	QVector<QPointF> points;
+
+	QGraphicsItem* triangulationItem;
+	QGraphicsItem* boundaryItem;
+	QGraphicsItem* pointsItem;
 
 };
 

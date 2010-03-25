@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Mar 25 12:17:17 2010
+** Created: Thu Mar 25 13:50:54 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -38,7 +38,7 @@ public:
     QSpacerItem *verticalSpacer;
     QLabel *labelDisplay;
     QCheckBox *cbxTriangulation;
-    QCheckBox *cbxBorder;
+    QCheckBox *cbxBoundary;
     QCheckBox *cbxPoints;
     QPushButton *buttonLoad;
     QPushButton *buttonStep;
@@ -74,21 +74,26 @@ public:
 
         cbxTriangulation = new QCheckBox(centralWidget);
         cbxTriangulation->setObjectName(QString::fromUtf8("cbxTriangulation"));
+        cbxTriangulation->setChecked(true);
 
         gridLayout->addWidget(cbxTriangulation, 2, 2, 1, 1);
 
-        cbxBorder = new QCheckBox(centralWidget);
-        cbxBorder->setObjectName(QString::fromUtf8("cbxBorder"));
+        cbxBoundary = new QCheckBox(centralWidget);
+        cbxBoundary->setObjectName(QString::fromUtf8("cbxBoundary"));
+        cbxBoundary->setChecked(true);
 
-        gridLayout->addWidget(cbxBorder, 3, 2, 1, 1);
+        gridLayout->addWidget(cbxBoundary, 3, 2, 1, 1);
 
         cbxPoints = new QCheckBox(centralWidget);
         cbxPoints->setObjectName(QString::fromUtf8("cbxPoints"));
+        cbxPoints->setChecked(true);
 
         gridLayout->addWidget(cbxPoints, 4, 2, 1, 1);
 
         buttonLoad = new QPushButton(centralWidget);
         buttonLoad->setObjectName(QString::fromUtf8("buttonLoad"));
+        buttonLoad->setAutoDefault(false);
+        buttonLoad->setDefault(false);
         buttonLoad->setFlat(false);
 
         gridLayout->addWidget(buttonLoad, 5, 0, 1, 1);
@@ -125,7 +130,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Boissonnat", 0, QApplication::UnicodeUTF8));
         labelDisplay->setText(QApplication::translate("MainWindow", "Display:", 0, QApplication::UnicodeUTF8));
         cbxTriangulation->setText(QApplication::translate("MainWindow", "Triangulation", 0, QApplication::UnicodeUTF8));
-        cbxBorder->setText(QApplication::translate("MainWindow", "Border", 0, QApplication::UnicodeUTF8));
+        cbxBoundary->setText(QApplication::translate("MainWindow", "Boundary", 0, QApplication::UnicodeUTF8));
         cbxPoints->setText(QApplication::translate("MainWindow", "Points", 0, QApplication::UnicodeUTF8));
         buttonLoad->setText(QApplication::translate("MainWindow", "Load", 0, QApplication::UnicodeUTF8));
         buttonStep->setText(QApplication::translate("MainWindow", "Step", 0, QApplication::UnicodeUTF8));

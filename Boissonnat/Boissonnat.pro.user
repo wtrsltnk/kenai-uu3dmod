@@ -167,6 +167,45 @@
   <variable>buildconfiguration-Debug-cleanstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-TFh7FfqRVe,guid=f7a9a77698d12f9179ac5dcf4ba94b1f</value>
+    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
+    <value type="QString">GDM_LANG=en_US.UTF-8</value>
+    <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
+    <value type="QString">GNOME_KEYRING_PID=15343</value>
+    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-CvWIHG/socket</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/wouter/.gtkrc-1.2-gnome2</value>
+    <value type="QString">HOME=/home/wouter</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/local/qtsdk-2010.02/lib/qtcreator:</value>
+    <value type="QString">LOGNAME=wouter</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-wouter</value>
+    <value type="QString">PATH=/usr/local/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/usr/local/qtsdk-2010.02/bin</value>
+    <value type="QString">QTDIR=/usr/local/qtsdk-2010.02/qt</value>
+    <value type="QString">SESSION_MANAGER=local/puma:@/tmp/.ICE-unix/15358,unix/puma:/tmp/.ICE-unix/15358</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SPEECHD_PORT=7560</value>
+    <value type="QString">SSH_AGENT_PID=15398</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-CvWIHG/socket.ssh</value>
+    <value type="QString">USER=wouter</value>
+    <value type="QString">USERNAME=wouter</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-wouter-SrFfgx/database</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
+    <value type="QString">XDG_SESSION_COOKIE=26ad69704ff71adbb17d9fc94b48758c-1269386015.451703-1666338595</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/wouter/Documents/uu/3D Moddeling/Assignments2010/Assignment 3/svn/uu3dmod3~source-code-repository/Boissonnat</value>
    <value key="cleanConfig" type="bool">true</value>
    <valuelist key="makeargs" type="QVariantList">
     <value type="QString">clean</value>
