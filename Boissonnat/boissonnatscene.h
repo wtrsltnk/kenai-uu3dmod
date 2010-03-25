@@ -1,6 +1,7 @@
 #ifndef BOISSONNATSCENE_H
 #define BOISSONNATSCENE_H
 
+#include <QTextStream>
 #include <QGraphicsScene>
 #include <QWidget>
 
@@ -11,17 +12,12 @@ class BoissonnatScene : public QGraphicsScene
 public:
     BoissonnatScene();
     virtual ~BoissonnatScene();
-    void buttonClicked(QString fileName);
 
+	void loadPointFile(QTextStream& in);
 
 protected:
-
-    void processLine(QString line);
     QVector<QPointF> points;
-
-private:
-
-    int fileCounter;
+	QGraphicsItem* boundary;
 
 };
 

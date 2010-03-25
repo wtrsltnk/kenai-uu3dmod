@@ -10,9 +10,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->graphicsView->setScene(&this->boisScene);
     connect(this->ui->buttonLoad, SIGNAL(clicked()), this, SLOT(buttonClicked()));
-
-	//ui->graphicsView->scale(100, 100);
-
 }
 
 MainWindow::~MainWindow()
@@ -24,21 +21,26 @@ void MainWindow::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
     switch (e->type()) {
-    case QEvent::LanguageChange:
-        ui->retranslateUi(this);
-        break;
-    default:
-        break;
+		case QEvent::LanguageChange:
+			ui->retranslateUi(this);
+			break;
+		default:
+			break;
     }
 }
 
 void MainWindow::buttonClicked(){
 
     QString fileName = QFileDialog::getOpenFileName(this,
-		tr("Open Input file"), "./Input/prac3-5", tr("Input Files (*.txt)"));
+		tr("Open Input file"), "./", tr("Input Files (*.txt)"));
 
+	QFile file(fileName);
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+		return;
 
-    this->boisScene.buttonClicked(fileName);
+	QTextStream in(&file);
+
+	this->boisScene.loadPointFile(in);
 }
 
 

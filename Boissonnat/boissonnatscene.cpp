@@ -2,48 +2,37 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
-
+#include "boundaryitem.h"
 
 BoissonnatScene::BoissonnatScene()
+	: boundary(NULL)
 {
 }
 
 BoissonnatScene::~BoissonnatScene()
 {
+	this->removeItem(this->boundary);
+	delete this->boundary;
 }
 
-void BoissonnatScene::buttonClicked(QString fileName)
+void BoissonnatScene::loadPointFile(QTextStream& in)
 {
+	if (this->boundary != NULL)
+		delete this->boundary;
+
     this->clear();
     points.clear();
 
-    QFile file(fileName);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
+	/// Skip the first line with the pointcount
+	in.readLine();
 
-
-    fileCounter = 0;
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        processLine(line);
-        fileCounter ++;
+	while (!in.atEnd()) {
+		QStringList elements = in.readLine().split(' ');
+		QPointF point(elements[0].toFloat(), elements[1].toFloat());
+		points.append(point);
+		this->addEllipse(point.x()-1, point.y()-1, 2, 2, QPen(QColor(255, 0, 0)), QBrush(QColor(0, 250, 0)));
     }
 
-    for(int i = 0; i < points.size() -1; i++)
-    {
-        this->addEllipse(points.at(i).x() /2, points.at(i).y() /2, 1, 1,QPen(QColor(255, 0, 0)),QBrush(QColor(0, 250, 0)));
-    }
-
+	this->boundary = new BoundaryItem(points);
+	addItem(this->boundary);
 }
-
-void BoissonnatScene::processLine(QString line){
-
-    if(!fileCounter == 0){
-
-        points.append(QPointF(line.section(' ', 0, 0).toFloat(),line.section(' ', 1, 1).toFloat()));
-    }
-}
-
-

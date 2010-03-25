@@ -5,7 +5,11 @@ TARGET = Boissonnat
 TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
-    boissonnatscene.cpp
+    boissonnatscene.cpp \
+    geompack.cpp \
+    boundaryitem.cpp
 HEADERS += mainwindow.h \
-    boissonnatscene.h
+    boissonnatscene.h \
+    geompack.h \
+    boundaryitem.h
 FORMS += mainwindow.ui
