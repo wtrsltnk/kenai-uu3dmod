@@ -41,6 +41,9 @@ void MainWindow::loadScene(){
 		return;
 
 	QTextStream in(&file);
+	
+	/// Skip the first line with the pointcount
+	in.readLine();
 
 	this->boisScene.loadPointFile(in);
 }

@@ -3,6 +3,7 @@
 
 #include <QTextStream>
 #include <QGraphicsScene>
+#include <QGraphicsPolygonItem>
 #include <QWidget>
 
 class BoissonnatScene : public QGraphicsScene
@@ -24,7 +25,7 @@ protected:
 	QVector<QPointF> points;
 
 	QGraphicsItem* triangulationItem;
-	QGraphicsItem* boundaryItem;
+	QGraphicsPolygonItem* boundaryItem;
 	QGraphicsItem* pointsItem;
 
 };

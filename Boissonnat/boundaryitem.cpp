@@ -1,5 +1,6 @@
 #include "boundaryitem.h"
 #include "geompack.h"
+#include <QPen>
 
 BoundaryItem::BoundaryItem(const QVector<QPointF>& points)
 {
