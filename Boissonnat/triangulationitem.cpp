@@ -1,6 +1,7 @@
 #include "triangulationitem.h"
 #include "geompack.h"
 #include <QPen>
+#include <QVector2D>
 
 TriangleItem::TriangleItem(QPointF points[])
 {
@@ -10,7 +11,10 @@ TriangleItem::TriangleItem(QPointF points[])
 		poly << points[i];
 		this->points[i] = points[i];
 	}
-	this->setPolygon(poly);
+	this->calculateCircleCenter();
+	this->polygonItem = new QGraphicsPolygonItem(poly);
+	this->polygonItem->setPen(QPen(QColor(200, 155, 0)));
+	this->setupItem();
 }
 
 TriangleItem::TriangleItem(QPointF point0, QPointF point1, QPointF point2)
@@ -23,11 +27,36 @@ TriangleItem::TriangleItem(QPointF point0, QPointF point1, QPointF point2)
 	for (int i = 0; i < 3; i++)
 		poly << this->points[i];
 
-	this->setPolygon(poly);
+	this->calculateCircleCenter();
+	this->polygonItem = new QGraphicsPolygonItem(poly);
+	this->polygonItem->setPen(QPen(QColor(200, 155, 0)));
+	this->setupItem();
 }
 
 TriangleItem::~TriangleItem()
 {
+}
+
+void TriangleItem::setupItem()
+{
+	QVector2D tmp(this->circleCenter.x() - points[0].x(), this->circleCenter.y() - points[0].y());
+	this->radius = tmp.length();
+	this->circleItem = new QGraphicsEllipseItem(this->circleCenter.x() - this->radius, this->circleCenter.y() - this->radius, this->radius * 2, this->radius * 2);
+	this->addToGroup(this->polygonItem);
+	this->addToGroup(this->circleItem);
+}
+
+void TriangleItem::calculateCircleCenter()
+{
+	double in[6] = { this->points[0].x(), this->points[0].y(),
+					 this->points[1].x(), this->points[1].y(),
+					 this->points[2].x(), this->points[2].y()
+					};
+
+	double* out = triangle_circumcenter_2d(in);
+	// Een of andere rare fix voor een vertical flipped y-as
+	this->circleCenter = QPointF(out[0], this->points[0].y() + (this->points[0].y() - out[1]));
+	delete []out;
 }
 
 // With the points to triangulate, create a delaunay triangulation with
@@ -60,7 +89,6 @@ TriangulationItem::TriangulationItem(const QVector<QPointF>& points)
 	for (int t = 0; t < tri_num; t++)
 	{
 		TriangleItem* item = new TriangleItem(points[tmp[0] - 1], points[tmp[1] - 1], points[tmp[2] - 1]);
-		item->setPen(QPen(QColor(200, 155, 0)));
 		this->addToGroup(item);
 		this->triangles.append(item);
 		tmp += 3;

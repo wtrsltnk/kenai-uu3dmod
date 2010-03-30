@@ -18,7 +18,10 @@ BoundaryItem::BoundaryItem(const QVector<QPointF>& points)
 
 	QPolygonF poly;
 	for (int i = 0; i < hullIndexCount; i++)
+	{
+		boundaryPoints.append(points.at(hullIndices[i] - 1));
 		poly << points.at(hullIndices[i] - 1);
+	}
 
 	this->setPolygon(poly);
 
@@ -33,8 +36,13 @@ BoundaryItem::~BoundaryItem()
 void BoundaryItem::setBoundary(const QVector<QPointF>& points)
 {
 	QPolygonF poly;
+	this->boundaryPoints.clear();
+
 	for (int i = 0; i < points.size(); i++)
+	{
+		this->boundaryPoints.append(points.at(i));
 		poly << points.at(i);
+	}
 
 	this->setPolygon(poly);
 }

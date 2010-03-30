@@ -6,15 +6,24 @@
 #include <QPointF>
 
 // A triangle item that holds the three points and draws the triangle through the polygon item class
-class TriangleItem : public QGraphicsPolygonItem
+class TriangleItem : public QGraphicsItemGroup
 {
 public:
 	TriangleItem(QPointF points[]);
 	TriangleItem(QPointF point0, QPointF point1, QPointF point2);
 	virtual ~TriangleItem();
 
-private:
 	QPointF points[3];
+	QPointF circleCenter;
+	float radius;
+
+protected:
+	void setupItem();
+	void calculateCircleCenter();
+
+private:
+	QGraphicsPolygonItem* polygonItem;
+	QGraphicsEllipseItem* circleItem;
 
 };
 

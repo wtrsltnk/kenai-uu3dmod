@@ -11,7 +11,11 @@ public:
 
 	void setBoundary(const QVector<QPointF>& points);
 
+	QVector<QPointF>& getBoundaryPoints() { return this->boundaryPoints; }
+	QGraphicsPolygonItem& getPolygon() { return this->polygon; }
+
 private:
+	QVector<QPointF> boundaryPoints;
 	QGraphicsPolygonItem polygon;
 
 };
