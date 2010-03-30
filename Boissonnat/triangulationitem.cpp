@@ -2,6 +2,7 @@
 #include "geompack.h"
 #include <QPen>
 #include <QVector2D>
+#include <iostream>
 
 TriangleItem::TriangleItem(QPointF points[])
 {
@@ -14,6 +15,8 @@ TriangleItem::TriangleItem(QPointF points[])
 	this->calculateCircleCenter();
 	this->polygonItem = new QGraphicsPolygonItem(poly);
 	this->polygonItem->setPen(QPen(QColor(200, 155, 0)));
+	this->addToGroup(this->polygonItem);
+
 	this->setupItem();
 }
 
@@ -30,6 +33,8 @@ TriangleItem::TriangleItem(QPointF point0, QPointF point1, QPointF point2)
 	this->calculateCircleCenter();
 	this->polygonItem = new QGraphicsPolygonItem(poly);
 	this->polygonItem->setPen(QPen(QColor(200, 155, 0)));
+	this->addToGroup(this->polygonItem);
+
 	this->setupItem();
 }
 
@@ -42,8 +47,7 @@ void TriangleItem::setupItem()
 	QVector2D tmp(this->circleCenter.x() - points[0].x(), this->circleCenter.y() - points[0].y());
 	this->radius = tmp.length();
 	this->circleItem = new QGraphicsEllipseItem(this->circleCenter.x() - this->radius, this->circleCenter.y() - this->radius, this->radius * 2, this->radius * 2);
-	this->addToGroup(this->polygonItem);
-	this->addToGroup(this->circleItem);
+//	this->addToGroup(this->circleItem);
 }
 
 void TriangleItem::calculateCircleCenter()
@@ -97,4 +101,15 @@ TriangulationItem::TriangulationItem(const QVector<QPointF>& points)
 
 TriangulationItem::~TriangulationItem()
 {
+}
+
+void TriangulationItem::removeTriangle(TriangleItem* item)
+{
+	if (this->triangles.contains(item))
+	{
+		this->triangles.remove(this->triangles.indexOf(item));
+		this->removeFromGroup(item);
+		this->update();
+	}
+	std::cout << "New sizes: " << this->triangles.size() << "," << this->childItems().size() << std::endl;
 }

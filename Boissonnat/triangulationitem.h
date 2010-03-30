@@ -34,6 +34,8 @@ public:
 	TriangulationItem(const QVector<QPointF>& points);
 	virtual ~TriangulationItem();
 
+	void removeTriangle(TriangleItem* item);
+
 private:
 	QVector<TriangleItem*> triangles;
 };
