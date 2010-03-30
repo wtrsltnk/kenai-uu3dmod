@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Mar 25 13:50:54 2010
+** Created: Tue Mar 30 11:19:36 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,6 +35,8 @@ public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QGraphicsView *graphicsView;
+    QPushButton *scaleUp;
+    QPushButton *scaleDown;
     QSpacerItem *verticalSpacer;
     QLabel *labelDisplay;
     QCheckBox *cbxTriangulation;
@@ -46,12 +48,16 @@ public:
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
+    QToolBar *toolBar;
+    QToolBar *toolBar_2;
+    QToolBar *toolBar_3;
+    QToolBar *toolBar_4;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(600, 400);
+        MainWindow->resize(614, 467);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -61,34 +67,46 @@ public:
         graphicsView = new QGraphicsView(centralWidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
 
-        gridLayout->addWidget(graphicsView, 0, 0, 5, 2);
+        gridLayout->addWidget(graphicsView, 0, 0, 7, 2);
 
-        verticalSpacer = new QSpacerItem(20, 179, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        scaleUp = new QPushButton(centralWidget);
+        scaleUp->setObjectName(QString::fromUtf8("scaleUp"));
+        scaleUp->setMaximumSize(QSize(25, 16777215));
 
-        gridLayout->addItem(verticalSpacer, 0, 2, 1, 1);
+        gridLayout->addWidget(scaleUp, 0, 2, 1, 1);
+
+        scaleDown = new QPushButton(centralWidget);
+        scaleDown->setObjectName(QString::fromUtf8("scaleDown"));
+        scaleDown->setMaximumSize(QSize(25, 16777215));
+
+        gridLayout->addWidget(scaleDown, 1, 2, 1, 1);
+
+        verticalSpacer = new QSpacerItem(192, 246, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 2, 2, 1, 1);
 
         labelDisplay = new QLabel(centralWidget);
         labelDisplay->setObjectName(QString::fromUtf8("labelDisplay"));
 
-        gridLayout->addWidget(labelDisplay, 1, 2, 1, 1);
+        gridLayout->addWidget(labelDisplay, 3, 2, 1, 1);
 
         cbxTriangulation = new QCheckBox(centralWidget);
         cbxTriangulation->setObjectName(QString::fromUtf8("cbxTriangulation"));
         cbxTriangulation->setChecked(true);
 
-        gridLayout->addWidget(cbxTriangulation, 2, 2, 1, 1);
+        gridLayout->addWidget(cbxTriangulation, 4, 2, 1, 1);
 
         cbxBoundary = new QCheckBox(centralWidget);
         cbxBoundary->setObjectName(QString::fromUtf8("cbxBoundary"));
         cbxBoundary->setChecked(true);
 
-        gridLayout->addWidget(cbxBoundary, 3, 2, 1, 1);
+        gridLayout->addWidget(cbxBoundary, 5, 2, 1, 1);
 
         cbxPoints = new QCheckBox(centralWidget);
         cbxPoints->setObjectName(QString::fromUtf8("cbxPoints"));
         cbxPoints->setChecked(true);
 
-        gridLayout->addWidget(cbxPoints, 4, 2, 1, 1);
+        gridLayout->addWidget(cbxPoints, 6, 2, 1, 1);
 
         buttonLoad = new QPushButton(centralWidget);
         buttonLoad->setObjectName(QString::fromUtf8("buttonLoad"));
@@ -96,22 +114,22 @@ public:
         buttonLoad->setDefault(false);
         buttonLoad->setFlat(false);
 
-        gridLayout->addWidget(buttonLoad, 5, 0, 1, 1);
+        gridLayout->addWidget(buttonLoad, 7, 0, 1, 1);
 
         buttonStep = new QPushButton(centralWidget);
         buttonStep->setObjectName(QString::fromUtf8("buttonStep"));
 
-        gridLayout->addWidget(buttonStep, 5, 1, 1, 1);
+        gridLayout->addWidget(buttonStep, 7, 1, 1, 1);
 
         buttonResult = new QPushButton(centralWidget);
         buttonResult->setObjectName(QString::fromUtf8("buttonResult"));
 
-        gridLayout->addWidget(buttonResult, 5, 2, 1, 1);
+        gridLayout->addWidget(buttonResult, 7, 2, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 25));
+        menuBar->setGeometry(QRect(0, 0, 614, 25));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -119,6 +137,18 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName(QString::fromUtf8("toolBar"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
+        toolBar_2 = new QToolBar(MainWindow);
+        toolBar_2->setObjectName(QString::fromUtf8("toolBar_2"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_2);
+        toolBar_3 = new QToolBar(MainWindow);
+        toolBar_3->setObjectName(QString::fromUtf8("toolBar_3"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_3);
+        toolBar_4 = new QToolBar(MainWindow);
+        toolBar_4->setObjectName(QString::fromUtf8("toolBar_4"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_4);
 
         retranslateUi(MainWindow);
 
@@ -128,6 +158,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Boissonnat", 0, QApplication::UnicodeUTF8));
+        scaleUp->setText(QApplication::translate("MainWindow", "+", 0, QApplication::UnicodeUTF8));
+        scaleDown->setText(QApplication::translate("MainWindow", "-", 0, QApplication::UnicodeUTF8));
         labelDisplay->setText(QApplication::translate("MainWindow", "Display:", 0, QApplication::UnicodeUTF8));
         cbxTriangulation->setText(QApplication::translate("MainWindow", "Triangulation", 0, QApplication::UnicodeUTF8));
         cbxBoundary->setText(QApplication::translate("MainWindow", "Boundary", 0, QApplication::UnicodeUTF8));
@@ -135,6 +167,10 @@ public:
         buttonLoad->setText(QApplication::translate("MainWindow", "Load", 0, QApplication::UnicodeUTF8));
         buttonStep->setText(QApplication::translate("MainWindow", "Step", 0, QApplication::UnicodeUTF8));
         buttonResult->setText(QApplication::translate("MainWindow", "Result", 0, QApplication::UnicodeUTF8));
+        toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0, QApplication::UnicodeUTF8));
+        toolBar_2->setWindowTitle(QApplication::translate("MainWindow", "toolBar_2", 0, QApplication::UnicodeUTF8));
+        toolBar_3->setWindowTitle(QApplication::translate("MainWindow", "toolBar_3", 0, QApplication::UnicodeUTF8));
+        toolBar_4->setWindowTitle(QApplication::translate("MainWindow", "toolBar_4", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

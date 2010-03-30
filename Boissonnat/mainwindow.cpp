@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(this->ui->cbxTriangulation, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(triangulationStatusChanged(int)));
 	connect(this->ui->cbxBoundary, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(boundaryStatusChanged(int)));
 	connect(this->ui->cbxPoints, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(pointsStatusChanged(int)));
+	connect(this->ui->scaleUp, SIGNAL(clicked()), this, SLOT(scaleUp()));
+	connect(this->ui->scaleDown, SIGNAL(clicked()), this, SLOT(scaleDown()));
 }
 
 MainWindow::~MainWindow()
@@ -46,6 +48,16 @@ void MainWindow::loadScene(){
 	in.readLine();
 
 	this->boisScene.loadPointFile(in);
+}
+
+void MainWindow::scaleUp()
+{
+	this->ui->graphicsView->scale(2, 2);
+}
+
+void MainWindow::scaleDown()
+{
+	this->ui->graphicsView->scale(0.5, 0.5);
 }
 
 

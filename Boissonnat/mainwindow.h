@@ -16,6 +16,8 @@ public:
 
 public slots:
 	void loadScene();
+	void scaleUp();
+	void scaleDown();
 
 protected:
     void changeEvent(QEvent *e);

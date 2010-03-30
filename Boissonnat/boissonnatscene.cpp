@@ -36,9 +36,12 @@ void BoissonnatScene::loadPointFile(QTextStream& in)
 
 	while (!in.atEnd()) {
 		QStringList elements = in.readLine().split(' ');
-		QPointF point(elements[0].toFloat(), elements[1].toFloat());
-		if (points.contains(point) == false)
-			points.append(point	);
+		if (elements.size() == 2)
+		{
+			QPointF point(elements[0].toFloat(), elements[1].toFloat());
+			if (points.contains(point) == false)
+				points.append(point	);
+		}
     }
 
 	this->triangulationItem = new TriangulationItem(points);
