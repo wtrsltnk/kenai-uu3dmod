@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->buttonLoad->setFocus();
     ui->graphicsView->setScene(&this->boisScene);
 	connect(this->ui->buttonLoad, SIGNAL(clicked()), this, SLOT(loadScene()));
+	connect(this->ui->buttonStep, SIGNAL(clicked()), &this->boisScene, SLOT(step()));
+	connect(this->ui->buttonResult, SIGNAL(clicked()), &this->boisScene, SLOT(stepToEnd()));
 	connect(this->ui->cbxTriangulation, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(triangulationStatusChanged(int)));
 	connect(this->ui->cbxBoundary, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(boundaryStatusChanged(int)));
 	connect(this->ui->cbxPoints, SIGNAL(stateChanged(int)), &this->boisScene, SLOT(pointsStatusChanged(int)));

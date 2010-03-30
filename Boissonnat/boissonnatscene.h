@@ -17,6 +17,9 @@ public:
 	void loadPointFile(QTextStream& in);
 
 public slots:
+	bool step();
+	void stepToEnd();
+
 	void triangulationStatusChanged(int state);
 	void boundaryStatusChanged(int state);
 	void pointsStatusChanged(int state);

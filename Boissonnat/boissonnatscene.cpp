@@ -2,6 +2,7 @@
 #include "triangulationitem.h"
 #include "boundaryitem.h"
 #include "pointsitem.h"
+#include <iostream>
 
 BoissonnatScene::BoissonnatScene()
 	: triangulationItem(NULL), boundaryItem(NULL), pointsItem(NULL)
@@ -16,6 +17,19 @@ BoissonnatScene::~BoissonnatScene()
 	delete this->boundaryItem;
 	this->removeItem(this->pointsItem);
 	delete this->pointsItem;
+}
+
+bool BoissonnatScene::step()
+{
+	std::cout << "Step!" << std::endl;
+	return false;
+}
+
+void BoissonnatScene::stepToEnd()
+{
+	std::cout << "Step to end..." << std::endl;
+	while (step()) std::cout << "Stepping...";
+	std::cout << "End" << std::endl;
 }
 
 // Loads points from a textstream and initializes the triangulation,
