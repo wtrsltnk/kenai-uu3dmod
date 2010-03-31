@@ -10,7 +10,8 @@ PointsItem::PointsItem(const QVector<QPointF>& points)
 	{
 		QPointF point = points.at(i);
 		QGraphicsEllipseItem* ellipse = new QGraphicsEllipseItem(point.x()-1, point.y()-1, 2, 2);
-		ellipse->setPen(QPen(QColor(55, 100, 255)));
+		ellipse->setPen(QPen(QColor(55, 255, 55)));
+		ellipse->setBrush(QBrush(QColor(55, 255, 55)));
 		this->addToGroup(ellipse);
 	}
 }

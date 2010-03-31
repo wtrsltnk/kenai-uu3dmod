@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 #include "boissonnatscene.h"
 
 namespace Ui {
@@ -16,6 +17,8 @@ public:
 
 public slots:
 	void loadScene();
+	void stepToEnd();
+	void step();
 	void scaleUp();
 	void scaleDown();
 
@@ -25,6 +28,7 @@ protected:
 
 private:
     Ui::MainWindow *ui;
+	QTimer timer;
     
 };
 

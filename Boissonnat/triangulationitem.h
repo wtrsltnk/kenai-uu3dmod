@@ -2,7 +2,6 @@
 #define TRIANGULATIONITEM_H
 
 #include <QGraphicsItemGroup>
-#include <QGraphicsPolygonItem>
 #include <QPointF>
 
 // A triangle item that holds the three points and draws the triangle through the polygon item class
@@ -13,18 +12,22 @@ public:
 	TriangleItem(QPointF point0, QPointF point1, QPointF point2);
 	virtual ~TriangleItem();
 
-	QPointF points[3];
-	QPointF circleCenter;
-	float radius;
-
 	void setPen(const QPen& pen);
 	void setBrush(const QBrush& brush);
+
+	QPointF* getPoints() { return this->points; }
+	QPointF getCircleCenter() { return this->circleCenter; }
+	float getRadius() { return this->radius; }
 
 protected:
 	void setupItem();
 	void calculateCircleCenter();
 
 private:
+	QPointF points[3];
+	QPointF circleCenter;
+	float radius;
+
 	QGraphicsPolygonItem* polygonItem;
 	QGraphicsEllipseItem* circleItem;
 

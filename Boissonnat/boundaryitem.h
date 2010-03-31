@@ -1,10 +1,10 @@
 #ifndef BOUNDARYITEM_H
 #define BOUNDARYITEM_H
 
-#include <QGraphicsPolygonItem>
 #include <QGraphicsItemGroup>
 #include "triangulationitem.h"
 
+// Forward declaration van de Potential structure, header staat in de cpp
 struct Potential;
 
 class BoundaryItem : public QGraphicsItemGroup

@@ -3,8 +3,6 @@
 
 #include <QTextStream>
 #include <QGraphicsScene>
-#include <QGraphicsPolygonItem>
-#include <QWidget>
 #include "triangulationitem.h"
 #include "boundaryitem.h"
 #include "pointsitem.h"
@@ -25,14 +23,17 @@ public:
     virtual ~BoissonnatScene();
 
 	void loadPointFile(QTextStream& in);
+	bool step();
 
 public slots:
-	bool step();
-	void stepToEnd();
-
 	void triangulationStatusChanged(int state);
 	void boundaryStatusChanged(int state);
 	void pointsStatusChanged(int state);
+
+protected:
+	bool isPotential(Potential& potential);
+	void calculateV(Potential& potential);
+	bool centerInTraingle(Potential& potential);
 
 protected:
 	QVector<QPointF> points;
@@ -41,9 +42,6 @@ protected:
 	BoundaryItem* boundaryItem;
 	PointsItem* pointsItem;
 
-protected:
-	bool calculateV(Potential& potential);
-	bool centerInTraingle(Potential& potential);
 };
 
 #endif // BOISSONNATSCENE_H

@@ -2,7 +2,6 @@
 #include "geompack.h"
 #include <QPen>
 #include <QVector2D>
-#include <iostream>
 
 TriangleItem::TriangleItem(QPointF points[])
 {
@@ -32,7 +31,8 @@ TriangleItem::TriangleItem(QPointF point0, QPointF point1, QPointF point2)
 
 	this->calculateCircleCenter();
 	this->polygonItem = new QGraphicsPolygonItem(poly);
-	this->polygonItem->setPen(QPen(QColor(200, 155, 0)));
+	this->polygonItem->setPen(QPen(QColor(100, 100, 255)));
+	this->polygonItem->setBrush(QBrush(QColor(150, 150, 255)));
 	this->addToGroup(this->polygonItem);
 
 	this->setupItem();
@@ -128,6 +128,6 @@ void TriangulationItem::removeTriangle(TriangleItem* item)
 	{
 		this->triangles.remove(index);
 	}
-	item->setPen(QPen(QColor(180, 180, 180)));
-	item->setBrush(QBrush(QColor(200, 200, 200)));
+	item->setPen(QPen(QColor(200, 200, 200)));
+	item->setBrush(QBrush(QColor(255, 255, 255)));
 }
