@@ -60,6 +60,7 @@ void MainWindow::stepToEnd()
 	if (this->boisScene.step() == false)
 	{
 		QMessageBox::warning(this, "Boissonnat", "Er zijn geen stappen meer mogelijk, het eindresultaat is zichtbaar!");
+                timer.stop();
 	}
 	else
 	{
