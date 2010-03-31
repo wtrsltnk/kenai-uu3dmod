@@ -94,7 +94,7 @@
     <value type="QString">LOGNAME=wouter</value>
     <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-wouter</value>
     <value type="QString">PATH=/usr/local/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString">PWD=/usr/local/qtsdk-2010.02/bin</value>
+    <value type="QString">PWD=/home/wouter</value>
     <value type="QString">QTDIR=/usr/local/qtsdk-2010.02/qt</value>
     <value type="QString">SESSION_MANAGER=local/puma:@/tmp/.ICE-unix/15358,unix/puma:/tmp/.ICE-unix/15358</value>
     <value type="QString">SHELL=/bin/bash</value>
@@ -141,7 +141,7 @@
     <value type="QString">LOGNAME=wouter</value>
     <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-wouter</value>
     <value type="QString">PATH=/usr/local/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString">PWD=/usr/local/qtsdk-2010.02/bin</value>
+    <value type="QString">PWD=/home/wouter</value>
     <value type="QString">QTDIR=/usr/local/qtsdk-2010.02/qt</value>
     <value type="QString">SESSION_MANAGER=local/puma:@/tmp/.ICE-unix/15358,unix/puma:/tmp/.ICE-unix/15358</value>
     <value type="QString">SHELL=/bin/bash</value>
@@ -185,7 +185,7 @@
     <value type="QString">LOGNAME=wouter</value>
     <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-wouter</value>
     <value type="QString">PATH=/usr/local/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString">PWD=/usr/local/qtsdk-2010.02/bin</value>
+    <value type="QString">PWD=/home/wouter</value>
     <value type="QString">QTDIR=/usr/local/qtsdk-2010.02/qt</value>
     <value type="QString">SESSION_MANAGER=local/puma:@/tmp/.ICE-unix/15358,unix/puma:/tmp/.ICE-unix/15358</value>
     <value type="QString">SHELL=/bin/bash</value>

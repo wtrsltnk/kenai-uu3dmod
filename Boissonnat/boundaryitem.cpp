@@ -1,8 +1,10 @@
 #include "boundaryitem.h"
 #include "geompack.h"
+#include "boissonnatscene.h"
 #include <QPen>
 
 BoundaryItem::BoundaryItem(const QVector<QPointF>& points)
+	: polygon(NULL)
 {
 	double* hullPoints = new double[points.size() * 2];
 	int* hullIndices = new int[points.size()];
@@ -23,7 +25,9 @@ BoundaryItem::BoundaryItem(const QVector<QPointF>& points)
 		poly << points.at(hullIndices[i] - 1);
 	}
 
-	this->setPolygon(poly);
+	this->polygon = new QGraphicsPolygonItem(poly);
+	this->polygon->setPen(QPen(QColor(255, 0, 0), 2.0f));
+	this->addToGroup(this->polygon);
 
 	delete []hullPoints;
 	delete []hullIndices;
@@ -33,17 +37,33 @@ BoundaryItem::~BoundaryItem()
 {
 }
 
-void BoundaryItem::setBoundary(const QVector<QPointF>& points)
+void BoundaryItem::removeTriangle(Potential* item)
 {
-	QPolygonF poly;
-	this->boundaryPoints.clear();
+	int boundaryPoint0Index = this->boundaryPoints.indexOf(item->pointsOnBoundary[0]);
+	int boundaryPoint1Index = this->boundaryPoints.indexOf(item->pointsOnBoundary[1]);
 
-	for (int i = 0; i < points.size(); i++)
+	int index = 0;
+	if ((boundaryPoint0Index == 0 && boundaryPoint1Index == this->boundaryPoints.size() - 1) ||
+		(boundaryPoint1Index == 0 && boundaryPoint0Index == this->boundaryPoints.size() - 1))
+		index = this->boundaryPoints.size();
+	else if (boundaryPoint0Index > boundaryPoint1Index)
+		index = boundaryPoint0Index;
+	else
+		index = boundaryPoint1Index;
+
+	this->boundaryPoints.insert(index, item->pointNotOnBoundary);
+
+	if (this->polygon != NULL)
 	{
-		this->boundaryPoints.append(points.at(i));
-		poly << points.at(i);
+		this->removeFromGroup(this->polygon);
+		delete this->polygon;
 	}
+	QPolygonF poly;
+	for (int i = 0; i < this->boundaryPoints.size(); i++)
+		poly << this->boundaryPoints[i];
 
-	this->setPolygon(poly);
+	this->polygon = new QGraphicsPolygonItem(poly);
+	this->polygon->setPen(QPen(QColor(255, 0, 0), 2.0f));
+	this->addToGroup(this->polygon);
 }
 

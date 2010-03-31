@@ -14,8 +14,6 @@ struct Potential {
 	QPointF pointNotOnBoundary;
 	TriangleItem* triangle;
 	float v;
-	QPointF circleCenter;
-	float circleRadius;
 };
 
 class BoissonnatScene : public QGraphicsScene
@@ -42,11 +40,10 @@ protected:
 	TriangulationItem* triangulationItem;
 	BoundaryItem* boundaryItem;
 	PointsItem* pointsItem;
-	QGraphicsItemGroup* centers;
 
 protected:
-	static bool calculateV(Potential& potential);
-	static bool centerInTraingle(Potential& potential);
+	bool calculateV(Potential& potential);
+	bool centerInTraingle(Potential& potential);
 };
 
 #endif // BOISSONNATSCENE_H

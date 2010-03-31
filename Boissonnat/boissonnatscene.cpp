@@ -4,7 +4,7 @@
 #include <math.h>
 
 BoissonnatScene::BoissonnatScene()
-	: triangulationItem(NULL), boundaryItem(NULL), pointsItem(NULL), centers(NULL)
+	: triangulationItem(NULL), boundaryItem(NULL), pointsItem(NULL)
 {
 }
 
@@ -16,29 +16,23 @@ BoissonnatScene::~BoissonnatScene()
 	delete this->boundaryItem;
 	this->removeItem(this->pointsItem);
 	delete this->pointsItem;
-	this->removeItem(this->centers);
-	delete this->centers;
 }
 
 bool BoissonnatScene::step()
 {
-	std::cout << "Step!" << std::endl;
+	if (this->triangulationItem == NULL)
+		return false;
+
+	std::cout << "Step..";
 
 	Potential largest;
 	largest.v = 0;
 	largest.triangle = NULL;
 
-	if (this->centers != NULL)
-	{
-		this->removeItem(this->centers);
-		delete this->centers;
-	}
-	this->centers = new QGraphicsItemGroup();
-	this->addItem(this->centers);
 	for (int c = 0; c < this->triangulationItem->childItems().size(); c++)
 	{
 		Potential potential;
-		TriangleItem* child = dynamic_cast <TriangleItem*> (this->triangulationItem->childItems().at(c));
+		TriangleItem* child = this->triangulationItem->getTriangle(c);
 		if (child == NULL)
 			continue;
 
@@ -58,9 +52,8 @@ bool BoissonnatScene::step()
 		else
 			potential.pointNotOnBoundary = child->points[2];
 
-		// Als er twee punten op de boundary liggen, is de triangle een potentieel op te verwijderen
 		potential.triangle = child;
-		if (BoissonnatScene::calculateV(potential))
+		if (this->calculateV(potential))
 		{
 			if (fabs(largest.v) < fabs(potential.v))
 				largest = potential;
@@ -70,31 +63,43 @@ bool BoissonnatScene::step()
 	{
 		// Carve triangle
 		this->triangulationItem->removeTriangle(largest.triangle);
+		this->boundaryItem->removeTriangle(&largest);
 		return true;
 	}
+	else
+	{
+		std::cout << "Nothing to carve..." << std::endl;
+	}
+
 	return false;
 }
 
 bool BoissonnatScene::calculateV(Potential& potential)
 {
+	// Alleen als er twee punten op de boundary liggen gaan we door
 	if (potential.pointsOnBoundary.size() != 2)
 		return false;
 
-	QPointF centerOnBoundary = (potential.pointsOnBoundary.at(0) + potential.pointsOnBoundary.at(1)) / 2;
+	int boundaryPoint0Index = this->boundaryItem->getBoundaryPoints().indexOf(potential.pointsOnBoundary[0]);
+	int boundaryPoint1Index = this->boundaryItem->getBoundaryPoints().indexOf(potential.pointsOnBoundary[1]);
 
-	QVector2D vDirection(centerOnBoundary.x() - potential.triangle->circleCenter.x(), centerOnBoundary.y() - potential.triangle->circleCenter.y());
-
-	if (centerInTraingle(potential))
+	// Hier een controle om te zorgen dat de twee punten op de boundary wel na elkaar op de boundary liggen
+	if ((abs(boundaryPoint0Index - boundaryPoint1Index) == 1) ||
+		(boundaryPoint0Index == 0 && boundaryPoint1Index == this->boundaryItem->getBoundaryPoints().size()-1) ||
+		(boundaryPoint1Index == 0 && boundaryPoint0Index == this->boundaryItem->getBoundaryPoints().size()-1))
 	{
-		potential.v = potential.triangle->radius - vDirection.length();
-	}
-	else
-	{
-		potential.v = potential.triangle->radius + vDirection.length();
+		QPointF centerBoundaryEdge = (potential.pointsOnBoundary.at(0) + potential.pointsOnBoundary.at(1)) / 2;
+		QVector2D vDirection(centerBoundaryEdge.x() - potential.triangle->circleCenter.x(), centerBoundaryEdge.y() - potential.triangle->circleCenter.y());
+
+		if (this->centerInTraingle(potential))
+			potential.v = potential.triangle->radius - vDirection.length();
+		else
+			potential.v = potential.triangle->radius + vDirection.length();
+
+		return true;
 	}
 
-	std::cout << potential.v << std::endl;
-	return true;
+	return false;
 }
 
 bool BoissonnatScene::centerInTraingle(Potential& potential)
@@ -108,7 +113,7 @@ bool BoissonnatScene::centerInTraingle(Potential& potential)
 			(potential.pointNotOnBoundary.y() - potential.pointsOnBoundary.at(0).y()) - (potential.pointNotOnBoundary.x() - potential.pointsOnBoundary.at(0).x()) *
 			(potential.pointsOnBoundary.at(1).y() - potential.pointsOnBoundary.at(0).y());
 
-	// Als zowel de center als het derde punt an de zelfde kant van de boundary ligt, return true
+	// Als zowel de center als het derde punt aan de zelfde kant van de boundary ligt, return true
 	return ((orientationCenter > 0) == (orientationP3 > 0));
 }
 
@@ -149,7 +154,6 @@ void BoissonnatScene::loadPointFile(QTextStream& in)
 	addItem(this->triangulationItem);
 
 	this->boundaryItem = new BoundaryItem(points);
-	this->boundaryItem->setPen(QPen(QColor(255, 0, 0), 2.0f));
 	addItem(this->boundaryItem);
 
 	this->pointsItem = new PointsItem(points);

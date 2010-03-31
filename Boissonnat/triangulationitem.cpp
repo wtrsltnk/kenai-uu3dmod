@@ -42,6 +42,16 @@ TriangleItem::~TriangleItem()
 {
 }
 
+void TriangleItem::setPen(const QPen& pen)
+{
+	this->polygonItem->setPen(pen);
+}
+
+void TriangleItem::setBrush(const QBrush& brush)
+{
+	this->polygonItem->setBrush(brush);
+}
+
 void TriangleItem::setupItem()
 {
 	QVector2D tmp(this->circleCenter.x() - points[0].x(), this->circleCenter.y() - points[0].y());
@@ -103,13 +113,21 @@ TriangulationItem::~TriangulationItem()
 {
 }
 
+TriangleItem* TriangulationItem::getTriangle(int index)
+{
+	if (index >= 0 && index < this->triangles.size())
+		return this->triangles.at(index);
+
+	return NULL;
+}
+
 void TriangulationItem::removeTriangle(TriangleItem* item)
 {
-	if (this->triangles.contains(item))
+	int index = this->triangles.indexOf(item);
+	if (index != -1)
 	{
-		this->triangles.remove(this->triangles.indexOf(item));
-		this->removeFromGroup(item);
-		this->update();
+		this->triangles.remove(index);
 	}
-	std::cout << "New sizes: " << this->triangles.size() << "," << this->childItems().size() << std::endl;
+	item->setPen(QPen(QColor(180, 180, 180)));
+	item->setBrush(QBrush(QColor(200, 200, 200)));
 }

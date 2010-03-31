@@ -17,6 +17,9 @@ public:
 	QPointF circleCenter;
 	float radius;
 
+	void setPen(const QPen& pen);
+	void setBrush(const QBrush& brush);
+
 protected:
 	void setupItem();
 	void calculateCircleCenter();
@@ -34,6 +37,7 @@ public:
 	TriangulationItem(const QVector<QPointF>& points);
 	virtual ~TriangulationItem();
 
+	TriangleItem* getTriangle(int index);
 	void removeTriangle(TriangleItem* item);
 
 private:
